@@ -1,0 +1,48 @@
+<!doctype html>
+ <html>
+ <body>
+  <!-- Load the JavaScript library -->
+  <script src="https://player.cdn.mdstrm.com/tizen_player/player.js"></script>
+  <div id="mdstrm-player"></div>
+  <script>
+   var playerOptions = {
+    type: "media", // Video type. Possible values: "media", "live"
+    id: "628267484720140921a5ce7b", // Video ID
+    autoplay: true, // Enable autoplay. Possible values: true, false
+    events: {
+    		// Callbacks to be triggered when certain actions are executed by the player. All optional.
+	     onPlayerReady: function() { // Optional callback to be triggered as soon as the player has finished loading
+	      console.log("Player is ready");
+	     },
+	     onPlay: function() { // Optional callback to be triggered as soon as the player starts playing
+	      console.log("Playing...");
+	     },
+	     onVideoEnd: function() { // Optional callback to be triggered when the video ends playing
+	      console.log("Video just ended");
+	     },
+	     onVideoStop: function() { // Optional callback to be triggered when the user stops or pauses the video
+	      console.log("User stopped or paused the video");
+	     },
+	     onVideoError: function() { // Optional callback to be triggered when there's a playback error
+	      console.log("There was an error while loading the video");
+	     },
+	     onVolumeChange: function(volume) { // Optional callback to be triggered when volume is changed (0-100)
+	      console.log("Volume was changed to " + volume);
+	     },
+	     onBufferingStart: function() {
+	     	console.log("Init buffering")
+	     },
+	     onBufferingStop: function() {
+	     	console.log("End buffering")
+	     }
+	     /*onTimeUpdate: function(time) { // Optional callback to be triggered when time is updated
+	       console.log("Current time is " + time);
+	     }*/
+     }
+   };
+
+   var player = new MediastreamPlayer("mdstrm-player", playerOptions);
+  </script>
+
+ </body>
+ </html>
